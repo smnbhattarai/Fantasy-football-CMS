@@ -1,0 +1,28 @@
+.index-body {
+  position:fixed;
+  width: 100%;
+  height: 100%;
+  background-image: url("/img/wc-2018-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: cover;
+  overflow-y:scroll;
+  overflow-x:hidden;
+}
+
+.index-body .navbar {
+  background: none !important;
+  color: white;
+}
+
+.index-body .navbar a {
+  color: white !important;
+}
+
+.index-body .navbar a:hover {
+  color: whitesmoke;
+}
+
+.index-body .dropdown-item:hover {
+  background: none;
+}
