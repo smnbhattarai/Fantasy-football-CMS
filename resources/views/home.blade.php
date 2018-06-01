@@ -23,7 +23,7 @@
                     </tr>
 
                     @foreach($matches as $k=>$match)
-                        <tr>
+                        <tr{{ $match->match_date <= \Carbon\Carbon::now()->format('Y-m-d') ? ' class="text-muted"' : '' }}>
                             <td>{{ $k+1 }}</td>
                             <td>
                                 <input type="radio" data-match-id="{{ $match->id }}" class="winner-select form-check-input" name="winner{{ $match->id }}" value="{{ $match->getTeam($match->team_one)->id }}" {!! ($match->userPrediction($match->id) == $match->team_one) ? 'checked="checked"' : "" !!} {!! $match->match_date <= \Carbon\Carbon::now()->format('Y-m-d') ? 'disabled="disabled"' : '' !!}>

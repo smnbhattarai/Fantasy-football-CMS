@@ -17,6 +17,9 @@
                         <li class="nav-item"><a class="nav-link" href="{{ route('match.index') }}">Match</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('admin.calculate.score') }}">Calculate Score</a></li>
                     @endif
+                        <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('user.prediction') }}">My Predictions</a></li>
+
                 @endif
             </ul>
 

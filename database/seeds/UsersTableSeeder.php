@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'Suman Bhattarai',
             'email' => 'smnbhattarai4@gmail.com',
             'is_admin' => 1,
-            'password' => bcrypt('password')
+            'password' => '$2y$10$KRK7YqLnaHzZ75QaFf.sIuaO/DwxJeynrZgTXUdSjt9JPDW.bFIEu'
         ]);
     }
 }

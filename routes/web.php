@@ -30,3 +30,4 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
 });
 
 Route::post('add-prediction', 'WinnerPredictionController@addPrediction')->middleware('auth');
+Route::get('my-prediction', 'PageController@myPrediction')->middleware('auth')->name('user.prediction');

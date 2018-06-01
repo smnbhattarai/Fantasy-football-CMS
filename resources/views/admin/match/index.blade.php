@@ -106,7 +106,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card card-body mt-3">
-                    <h4 class="text-center">All Matches</h4><hr>
+                    <h4 class="text-center">All Matches / Add match results</h4><hr>
 
                     <table class="table table-borderless">
 
