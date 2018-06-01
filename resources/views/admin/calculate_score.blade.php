@@ -16,7 +16,7 @@
                     </form>
 
 
-                    @if(isset($user_time))
+                    @if(isset($scoretime))
                     <p class="text-dark text-center mt-5">Time taken for user score calculation: <strong>{{ $scoretime }}</strong></p>
                     @endif
 

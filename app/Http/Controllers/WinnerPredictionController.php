@@ -44,6 +44,9 @@ class WinnerPredictionController extends Controller
                     $id = $prediction->id;
                     $match = $prediction->match_id;
                     $userPrediction = $prediction->prediction;
+                    if(!Winner::hasResult($match)){
+                        continue;
+                    }
                     $match_winner = Winner::where('match', $match)->take(1)->pluck('winner');
                     if($match_winner[0] == $userPrediction){
                         $score = 100;

@@ -14,19 +14,18 @@ class UserScoreController extends Controller
     public function calculateUserScore(Request $request) {
         $start = microtime(true);
         $users = User::all();
-        $score = 0;
         foreach($users as $user) {
+            $score = 0;
             $predictions = WinnerPrediction::where('user_id', $user->id)->get();
             foreach($predictions as $prediction) {
                 $score = $score + $prediction->score;
             }
-            $user_found = UserScore::where('user_id', $user->id)->take(1)->get();
+            $user_found = UserScore::where('user_id', $user->id);
             if($user_found->count() > 0){
                 DB::table('user_scores')->where('user_id', $user->id)->update(['score' => $score, 'updated_at' => Carbon::now()]);
             } else {
                 DB::table('user_scores')->insert(['user_id' => $user->id, 'score' => $score, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()]);
             }
-
         }
         $end = microtime(true);
         $time = $end - $start;

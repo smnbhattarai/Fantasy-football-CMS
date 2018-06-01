@@ -34,7 +34,13 @@
                                 <td><img class="mb-2" src="{{ $match->getTeam($match->team_two)->country_flag }}" alt="{{ $match->getTeam($match->team_two)->country_name }}"> {{ $match->getTeam($match->team_two)->country_name }}</td>
                                 <td>{{ $match->match_date }}</td>
                                 <td>{{ $match->group_level }}</td>
-                                <td><img src="{{ $match->getTeam($match->userPrediction($match->id))->country_flag }}" alt="{{ $match->getTeam($match->userPrediction($match->id))->country_name }}"> {{ $match->getTeam($match->userPrediction($match->id))->country_name }}</td>
+                                <td>
+                                    @if(!empty($match->getTeam($match->userPrediction($match->id))->country_flag))
+                                    <img src="{{ $match->getTeam($match->userPrediction($match->id))->country_flag }}" alt="{{ $match->getTeam($match->userPrediction($match->id))->country_name }}"> {{ $match->getTeam($match->userPrediction($match->id))->country_name }}
+                                    @else
+                                        <strong>{{ strtoupper($match->userPrediction($match->id)) }}</strong>
+                                    @endif
+                                </td>
                                 <td>{!! $match->userScore($match->id) > 0 ? '<strong class="text-success">'. $match->userScore($match->id) .'</strong>' : '<strong class="text-danger">'. $match->userScore($match->id) .'</strong>'  !!}</td>
                             </tr>
                         @endforeach
