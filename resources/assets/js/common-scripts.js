@@ -10,3 +10,11 @@ $(document).ready(function(){
         $('.alert').fadeOut('slow');
     }, 5000);
 });
+
+
+var links = $('.navbar ul li a');
+$.each(links, function (key, va) {
+    if (va.href == document.URL) {
+        $(this).parent().addClass('active');
+    }
+});

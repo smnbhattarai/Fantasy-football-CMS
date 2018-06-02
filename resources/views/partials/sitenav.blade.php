@@ -9,27 +9,28 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
-                @if(Auth::check())
-                    @if(Auth::user()->is_admin)
+            @if(Auth::check())
+                @if(Auth::user()->is_admin)
+                    <ul class="navbar-nav">
                         <li class="nav-item"><a class="nav-link" href="{{ route('admin.index') }}">Dashboard</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('team.index') }}">Team</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('match.index') }}">Match</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('admin.calculate.score') }}">Calculate Score</a></li>
-                    @endif
-                        <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('user.prediction') }}">My Predictions</a></li>
-
+                    </ul>
                 @endif
-            </ul>
+            @endif
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
+                <li><a href="{{ route('match.result') }}" class="nav-link">Match Result</a></li>
                 <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                 <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                 @else
+                    <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('user.prediction') }}">My Predictions</a></li>
+                    <li><a href="{{ route('match.result') }}" class="nav-link">Match Result</a></li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>

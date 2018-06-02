@@ -31,4 +31,10 @@ class PageController extends Controller
         $matches = Match::orderBy('match_date', 'asc')->get();
         return view('pages.my_prediction', compact('teams', 'matches', 'score'));
     }
+
+
+    public function matchResult(){
+        $matches = Match::all();
+        return view('pages.match_result', compact('matches'));
+    }
 }

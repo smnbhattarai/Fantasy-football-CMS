@@ -20,22 +20,21 @@ class Match extends Model
     }
 
 
-    public function winner($matchId) {
+    public function winner($matchId)
+    {
         return Winner::where('match', $matchId)->pluck('winner')->first();
     }
 
-    public function userPrediction($matchId){
+
+    public function userPrediction($matchId)
+    {
         return WinnerPrediction::where('user_id', Auth::id())->where('match_id', $matchId)->pluck('prediction')->first();
     }
 
 
-    public function userScore($matchId){
+    public function userScore($matchId)
+    {
         return WinnerPrediction::where('user_id', Auth::id())->where('match_id', $matchId)->pluck('score')->first();
     }
 
-
-//    public function getMatchDateAttribute($date)
-//    {
-//        return Carbon::parse($date);
-//    }
 }
