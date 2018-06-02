@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -14,7 +15,10 @@ class AdminController extends Controller
 
 
     public function index() {
-        return view('admin.dashboard');
+        $users = DB::table('users')->count();
+        $teams = DB::table('teams')->count();
+        $matches = DB::table('matches')->count();
+        return view('admin.dashboard', compact('users', 'teams', 'matches'));
     }
 
 }
