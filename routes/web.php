@@ -17,6 +17,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/match-result', 'PageController@matchResult')->name('match.result');
+Route::get('/match-schedule', 'PageController@matchSchedule')->name('match.schedule');
 
 Route::redirect('/admin', '/admin/dashboard', 301);
 

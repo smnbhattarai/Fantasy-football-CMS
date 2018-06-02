@@ -24,12 +24,14 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
+                <li><a href="{{ route('match.schedule') }}" class="nav-link">Match Schedule</a></li>
                 <li><a href="{{ route('match.result') }}" class="nav-link">Match Result</a></li>
                 <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                 <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                 @else
                     <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('user.prediction') }}">My Predictions</a></li>
+                    <li><a href="{{ route('match.schedule') }}" class="nav-link">Match Schedule</a></li>
                     <li><a href="{{ route('match.result') }}" class="nav-link">Match Result</a></li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

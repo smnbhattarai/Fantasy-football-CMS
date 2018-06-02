@@ -37,4 +37,10 @@ class PageController extends Controller
         $matches = Match::all();
         return view('pages.match_result', compact('matches'));
     }
+
+
+    public function matchSchedule(){
+        $matches = Match::all();
+        return view('pages.match_schedule', compact('matches'));
+    }
 }
