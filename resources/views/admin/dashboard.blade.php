@@ -5,11 +5,14 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-sm-4 mb-4">
+            <div class="col-sm-12 mb-4">
                 <div class="card text-white bg-primary">
                     <div class="card-header">Total Users</div>
                     <div class="card-body">
-                        <h2>{{ $users }}</h2>
+                        <h2>{{ $users->count() }}</h2>
+                        @foreach($users as $user)
+                        <small> {{ $user->name }} ({{ $user->email }}) | </small>
+                        @endforeach
                     </div>
                 </div>
             </div>

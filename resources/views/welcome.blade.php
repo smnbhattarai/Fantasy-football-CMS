@@ -34,6 +34,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     @guest
+                    <li><a href="{{ route('match.schedule') }}" class="nav-link">Match Schedule</a></li>
                     <li><a href="{{ route('match.result') }}" class="nav-link">Match Result</a></li>
                     <li><a class="nav-link home-login" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                     <li><a class="nav-link home-register" href="{{ route('register') }}">{{ __('Register') }}</a></li>

@@ -6,11 +6,7 @@
             <div class="col-md-9">
 
                 <div class="card card-body">
-                    <h5 class="card-title">Pick your team</h5>
-                    <p>
-                        <small>Predict your team and we will calculate your score after each match.</small>
-                        <small>Deadline for picking your team is 24 hour before the match date.</small>
-                    </p>
+                    <h5 class="card-title">{{ Auth::user()->name }}, your predictions are </h5>
 
                     <table class="table table-borderless table-responsive">
 
