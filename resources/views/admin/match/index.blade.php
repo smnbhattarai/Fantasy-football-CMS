@@ -46,14 +46,14 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="">Match date</label>
+                                    <label for="match_date">Match date</label>
                                     <input type="text" name="match_date" id="match_date" value="{{ old('match_date') }}" class="form-control">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="">Match time</label>
-                                    <input type="text" name="match_time" value="{{ old('match_time') }}" class="form-control">
+                                    <label for="match_time">Match time</label>
+                                    <input type="text" id="match_time" name="match_time" value="{{ old('match_time') }}" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="">Match Location</label>
-                                    <input type="text" name="match_location" value="{{ old('match_location') }}" class="form-control">
+                                    <input type="text" id="match_location" name="match_location" value="{{ old('match_location') }}" class="form-control">
                                 </div>
                             </div>
                             <div class="col">
@@ -185,5 +185,27 @@
                 }
             });
         });
+
+
+
+        $('#match_time').autocomplete({
+            source: '{{ route('admin.match.time') }}',
+            minLength: 1,
+            select: function(e, ui){
+                $('#match_date').val(ui.item.value);
+            }
+        });
+
+
+        $('#match_location').autocomplete({
+            source: '{{ route('admin.match.location') }}',
+            minLength: 1,
+            select: function(e, ui){
+                $('#match_location').val(ui.item.value);
+            }
+        });
+
+
+
     </script>
     @endsection

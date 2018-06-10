@@ -109,4 +109,14 @@ class MatchController extends Controller
     {
         //
     }
+
+
+    public function getMatchTime(Request $request){
+        return Match::where('match_time', 'like', '%' . $request->term . '%')->distinct()->take(10)->pluck('match_time');
+    }
+
+
+    public function getMatchLocation(Request $request){
+        return Match::where('match_location', 'like', '%' . $request->term . '%')->distinct()->take(10)->pluck('match_location');
+    }
 }

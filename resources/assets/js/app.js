@@ -23,5 +23,6 @@ require('./bootstrap');
 //});
 
 require('jquery-ui/ui/widgets/datepicker.js');
+require('jquery-ui/ui/widgets/autocomplete.js');
 
 require('./common-scripts');

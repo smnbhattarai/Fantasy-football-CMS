@@ -29,6 +29,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
     Route::post('add-winner', 'WinnerController@addWinner');
     Route::match(['get', 'post'], 'calculate-score', 'WinnerPredictionController@calculateScore')->name('admin.calculate.score');
     Route::post('calculate-user-score', 'UserScoreController@calculateUserScore')->name('admin.calculate.user.score');
+    Route::get('get-match-time', ['uses' => 'MatchController@getMatchTime', 'as' => 'admin.match.time']);
+    Route::get('get-match-location', ['uses' => 'MatchController@getMatchLocation', 'as' => 'admin.match.location']);
 });
 
 Route::post('add-prediction', 'WinnerPredictionController@addPrediction')->middleware('auth');
