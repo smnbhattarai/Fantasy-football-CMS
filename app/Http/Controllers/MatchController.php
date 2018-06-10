@@ -52,8 +52,8 @@ class MatchController extends Controller
         $match->team_one = $request->team_one;
         $match->team_two = $request->team_two;
         $match->match_date = $request->match_date;
-        $match->match_time = $request->match_time;
-        $match->match_location = $request->match_location;
+        $match->match_time = trim($request->match_time);
+        $match->match_location = trim($request->match_location);
         $match->group_level = $request->group_level;
 
         if($match->save()) {
