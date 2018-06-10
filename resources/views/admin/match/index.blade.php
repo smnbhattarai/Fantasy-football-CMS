@@ -192,7 +192,7 @@
             source: '{{ route('admin.match.time') }}',
             minLength: 1,
             select: function(e, ui){
-                $('#match_date').val(ui.item.value);
+                $('#match_time').val(ui.item.value);
             }
         });
 
