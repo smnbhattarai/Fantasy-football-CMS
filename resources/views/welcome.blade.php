@@ -11,7 +11,7 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <meta property="og:image" content="{{ asset('img/wc-2018-bg.jpg') }}"/>
+    <meta property="og:image" content="{{ asset('img/wc-2018-bg.jpg') }}">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>

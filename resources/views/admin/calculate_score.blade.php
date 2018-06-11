@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title') Calculate Score - @endsection
+
 @section('content')
     <div class="container">
         <div class="row">

@@ -9,9 +9,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="{{ asset('favicon.ico') }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title') {{ config('app.name', 'Fantasy Football') }}</title>
 
-    <meta property="og:image" content="{{ asset('img/wc-2018-bg.jpg') }}"/>
+    <meta property="og:image" content="{{ asset('img/wc-2018-bg.jpg') }}">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
