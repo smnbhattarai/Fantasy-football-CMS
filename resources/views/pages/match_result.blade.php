@@ -9,7 +9,7 @@
 
             <h4 class="text-center">Match results</h4><hr>
 
-            <table class="table text-white table-borderless table-striped table-dark">
+            <table class="table text-white table-borderless table-striped table-dark table-responsive">
                 <tr>
                     <th>S.No.</th>
                     <th></th>
@@ -26,7 +26,7 @@
                         <td><img class="mb-2" src="{{ $match->getTeam($match->team_one)->country_flag }}" alt="{{ $match->getTeam($match->team_one)->country_name }}"> {{ $match->getTeam($match->team_one)->country_name }}</td>
                         <td>vs</td>
                         <td><img class="mb-2" src="{{ $match->getTeam($match->team_two)->country_flag }}" alt="{{ $match->getTeam($match->team_two)->country_name }}"> {{ $match->getTeam($match->team_two)->country_name }}</td>
-                        <td>{{ $match->match_date }}</td>
+                        <td>{{ Carbon\Carbon::parse($match->match_date)->format('Y F d') }}</td>
                         <td>{{ $match->group_level }}</td>
                         <td>
                             @if($match->winner($match->id) == 'draw')

@@ -9,7 +9,7 @@
 
             <h4 class="text-center">Match schedule</h4><hr>
 
-            <table class="table table-borderless table-hover">
+            <table class="table table-borderless table-hover table-responsive">
                 <tr>
                     <th>S.No.</th>
                     <th></th>
@@ -27,7 +27,7 @@
                         <td><img class="mb-2" src="{{ $match->getTeam($match->team_one)->country_flag }}" alt="{{ $match->getTeam($match->team_one)->country_name }}"> {{ $match->getTeam($match->team_one)->country_name }}</td>
                         <td>vs</td>
                         <td><img class="mb-2" src="{{ $match->getTeam($match->team_two)->country_flag }}" alt="{{ $match->getTeam($match->team_two)->country_name }}"> {{ $match->getTeam($match->team_two)->country_name }}</td>
-                        <td>{{ Carbon\Carbon::parse($match->match_date)->format('Y M d') }}</td>
+                        <td>{{ Carbon\Carbon::parse($match->match_date)->format('Y F d') }}</td>
                         <td>{{ $match->match_time }}</td>
                         <td>{{ $match->match_location }}</td>
                         <td>{{ $match->group_level }}</td>
