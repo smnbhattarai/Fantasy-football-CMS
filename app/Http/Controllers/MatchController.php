@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Team;
 use Illuminate\Http\Request;
 use App\Match;
-use Session;
+use Illuminate\Support\Facades\Session;
 
 class MatchController extends Controller
 {
@@ -84,7 +84,9 @@ class MatchController extends Controller
      */
     public function edit($id)
     {
-        //
+        $match = Match::findOrFail($id);
+        $teams = Team::orderBy('country_name', 'asc')->get();
+        return view('admin.match.edit')->with('match', $match)->with('teams', $teams);
     }
 
     /**
@@ -96,7 +98,28 @@ class MatchController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'team_one' => 'required',
+            'team_two' => 'required',
+            'match_date' => 'required',
+            'group_level' => 'required'
+        ]);
+
+        $match = Match::findOrFail($id);
+        $match->team_one = $request->team_one;
+        $match->team_two = $request->team_two;
+        $match->match_date = $request->match_date;
+        $match->match_time = trim($request->match_time);
+        $match->match_location = trim($request->match_location);
+        $match->group_level = $request->group_level;
+
+        if($match->save()) {
+            Session::flash('success', 'Match updated successfully.');
+            return redirect()->back();
+        } else {
+            Session::flash('error', 'Oops! Something went wrong. Please try again.');
+            return redirect()->back();
+        }
     }
 
     /**
